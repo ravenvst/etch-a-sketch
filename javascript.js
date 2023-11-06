@@ -5,6 +5,6 @@ function addDiv() {
     container.appendChild(div);
 }
 
-for (let i = 0; i < 16; i++){
+for (let i = 0; i < 256; i++){
     addDiv();
 }
