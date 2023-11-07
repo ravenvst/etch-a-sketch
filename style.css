@@ -13,3 +13,17 @@ div {
 div:hover {
     background-color: #E5D4ED;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    align-self: center;
+
+}
