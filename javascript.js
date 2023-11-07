@@ -21,15 +21,22 @@ function createSketchpad() {
 
 
 function requestNumber () {
- 
+    number = prompt("Please enter the number of squares per line (max 100)");
+    
     let list = document.querySelectorAll("div");
     list.forEach(function(node){
         node.remove();
     })
-    number = prompt("Please enter the number of squares per line (max 100)");
-    squareSize = 960 / number;
-    createSketchpad();
-    return number;
+
+   
+    if (number >= 1 && number <= 100) {
+        squareSize = 960 / number;
+        createSketchpad();
+    } else if (number > 100) {
+        alert ("The number has to be 100 or less.");
+    } else {
+        alert ("ERROR");
+    }
 }
 
 
