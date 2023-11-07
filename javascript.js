@@ -9,6 +9,9 @@ function addDiv() {
     container.appendChild(div);
 }
 
+function requestNumber () {
+    let number = prompt("Please enter the number of squares");
+}
 
 
 
