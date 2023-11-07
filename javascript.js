@@ -1,7 +1,8 @@
 const container = document.querySelector(".container");
 let number = 16;
+let squareSize = 960 / number;
 const button = document.querySelector("button");
-button.addEventListener("click", requestNumber);  // THIS WORKS
+button.addEventListener("click", requestNumber);  
 
 createSketchpad();
 
@@ -12,11 +13,11 @@ function createSketchpad() {
     
     function addDiv() {  
         const div = document.createElement("div");
+        div.style.width = squareSize + "px";
+        div.style.height = squareSize + "px";
         container.appendChild(div);
     }
 }
-
-
 
 
 function requestNumber () {
@@ -26,7 +27,9 @@ function requestNumber () {
         node.remove();
     })
     number = prompt("Please enter the number of squares per line (max 100)");
+    squareSize = 960 / number;
     createSketchpad();
+    return number;
 }
 
 

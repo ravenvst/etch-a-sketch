@@ -1,8 +1,9 @@
 .container {
     display: flex;
-    gap: 1px;
+    /*gap: 1px;*/
     flex-wrap: wrap;
     width: 960px;
+    height: 960px;
 }
 
 div {
