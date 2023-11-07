@@ -10,11 +10,11 @@ function createSketchpad() {
     for (let i = 0; i < number*number; i++){
         addDiv();
     }
-    
     function addDiv() {  
         const div = document.createElement("div");
         div.style.width = squareSize + "px";
         div.style.height = squareSize + "px";
+        div.addEventListener("mouseover", () => div.style.backgroundColor ="red");
         container.appendChild(div);
     }
 }
@@ -22,13 +22,10 @@ function createSketchpad() {
 
 function requestNumber () {
     number = prompt("Please enter the number of squares per line (max 100)");
-    
     let list = document.querySelectorAll("div");
     list.forEach(function(node){
         node.remove();
     })
-
-   
     if (number >= 1 && number <= 100) {
         squareSize = 960 / number;
         createSketchpad();

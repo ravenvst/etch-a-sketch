@@ -12,10 +12,6 @@ div {
     height: 60px;
 }
 
-div:hover {
-    background-color: #E5D4ED;
-}
-
 body {
     display: flex;
     flex-direction: column;
