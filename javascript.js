@@ -6,6 +6,14 @@ button.addEventListener("click", requestNumber);
 
 createSketchpad();
 
+function randomNumber () {
+    return Math.floor(Math.random() * (256));
+}
+
+function randomColor () {
+    return "rgb(" + randomNumber() + ", " + randomNumber() + ", " + randomNumber() + ")";
+}
+
 function createSketchpad() {
     for (let i = 0; i < number*number; i++){
         addDiv();
@@ -14,7 +22,7 @@ function createSketchpad() {
         const div = document.createElement("div");
         div.style.width = squareSize + "px";
         div.style.height = squareSize + "px";
-        div.addEventListener("mouseover", () => div.style.backgroundColor ="red");
+        div.addEventListener("mouseover", () => div.style.backgroundColor = randomColor());
         container.appendChild(div);
     }
 }
