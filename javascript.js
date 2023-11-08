@@ -14,6 +14,20 @@ function randomColor () {
     return "rgb(" + randomNumber() + ", " + randomNumber() + ", " + randomNumber() + ")";
 }
 
+function darkerColor (originalColor) {
+    if (originalColor === "" || originalColor === "rgb(0, 0, 0)"){
+        return randomColor();
+    } else {/*
+        let color =  originalColor.slice(4, length-1).split(", ");
+        color[0] = Math.round(color[0] -25.6);
+        color[1] = Math.round(color[1] - 25.6);
+        color[2] = Math.round(color[2] - 25.6);
+        return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
+        */
+       
+    }
+}
+
 function createSketchpad() {
     for (let i = 0; i < number*number; i++){
         addDiv();
@@ -22,7 +36,36 @@ function createSketchpad() {
         const div = document.createElement("div");
         div.style.width = squareSize + "px";
         div.style.height = squareSize + "px";
-        div.addEventListener("mouseover", () => div.style.backgroundColor = randomColor());
+        div.addEventListener("mouseover", () => {
+            if (div.style.backgroundColor === "" || div.style.backgroundColor === "rgb(0, 0, 0)"){
+                div.style.backgroundColor = randomColor();
+            } else {
+                if (div.style.filter === "brightness(100%)" || div.style.filter === ""){
+                    div.style.filter = "brightness(90%)";
+                } else if (div.style.filter === "brightness(90%)"){
+                    div.style.filter = "brightness(80%)";
+                } else if (div.style.filter === "brightness(80%)"){
+                    div.style.filter = "brightness(70%)";
+                } else if (div.style.filter === "brightness(70%)"){
+                    div.style.filter = "brightness(60%)";
+                } else if (div.style.filter === "brightness(60%)"){
+                    div.style.filter = "brightness(50%)";
+                } else if (div.style.filter === "brightness(50%)"){
+                    div.style.filter = "brightness(40%)";
+                } else if (div.style.filter === "brightness(40%)"){
+                    div.style.filter = "brightness(30%)";
+                } else if (div.style.filter === "brightness(30%)"){
+                    div.style.filter = "brightness(20%)";
+                } else if (div.style.filter === "brightness(20%)"){
+                    div.style.filter = "brightness(10%)";
+                } else if (div.style.filter === "brightness(10%)"){
+                    div.style.filter = "brightness(100%)";
+                    div.style.backgroundColor = "rgb(0, 0, 0)";
+                } 
+            }
+            /*div.style.backgroundColor = darkerColor(div.style.backgroundColor)*/
+            
+        });
         container.appendChild(div);
     }
 }
