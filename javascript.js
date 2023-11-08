@@ -14,20 +14,6 @@ function randomColor () {
     return "rgb(" + randomNumber() + ", " + randomNumber() + ", " + randomNumber() + ")";
 }
 
-function darkerColor (originalColor) {
-    if (originalColor === "" || originalColor === "rgb(0, 0, 0)"){
-        return randomColor();
-    } else {/*
-        let color =  originalColor.slice(4, length-1).split(", ");
-        color[0] = Math.round(color[0] -25.6);
-        color[1] = Math.round(color[1] - 25.6);
-        color[2] = Math.round(color[2] - 25.6);
-        return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
-        */
-       
-    }
-}
-
 function createSketchpad() {
     for (let i = 0; i < number*number; i++){
         addDiv();
@@ -40,36 +26,48 @@ function createSketchpad() {
             if (div.style.backgroundColor === "" || div.style.backgroundColor === "rgb(0, 0, 0)"){
                 div.style.backgroundColor = randomColor();
             } else {
-                if (div.style.filter === "brightness(100%)" || div.style.filter === ""){
-                    div.style.filter = "brightness(90%)";
-                } else if (div.style.filter === "brightness(90%)"){
-                    div.style.filter = "brightness(80%)";
-                } else if (div.style.filter === "brightness(80%)"){
-                    div.style.filter = "brightness(70%)";
-                } else if (div.style.filter === "brightness(70%)"){
-                    div.style.filter = "brightness(60%)";
-                } else if (div.style.filter === "brightness(60%)"){
-                    div.style.filter = "brightness(50%)";
-                } else if (div.style.filter === "brightness(50%)"){
-                    div.style.filter = "brightness(40%)";
-                } else if (div.style.filter === "brightness(40%)"){
-                    div.style.filter = "brightness(30%)";
-                } else if (div.style.filter === "brightness(30%)"){
-                    div.style.filter = "brightness(20%)";
-                } else if (div.style.filter === "brightness(20%)"){
-                    div.style.filter = "brightness(10%)";
-                } else if (div.style.filter === "brightness(10%)"){
-                    div.style.filter = "brightness(100%)";
-                    div.style.backgroundColor = "rgb(0, 0, 0)";
-                } 
-            }
-            /*div.style.backgroundColor = darkerColor(div.style.backgroundColor)*/
-            
+
+                switch (div.style.filter) {
+                    case "brightness(100%)":
+                    case "":
+                        div.style.filter = "brightness(90%)";
+                        break;
+                    case "brightness(90%)":
+                        div.style.filter = "brightness(80%)";
+                        break;
+                    case "brightness(80%)":
+                        div.style.filter = "brightness(70%)";
+                        break;
+                    case "brightness(70%)":
+                        div.style.filter = "brightness(60%)";
+                        break;
+                    case "brightness(60%)":
+                        div.style.filter = "brightness(50%)";
+                        break;
+                    case "brightness(50%)":
+                        div.style.filter = "brightness(40%)";
+                        break;
+                    case "brightness(40%)":
+                        div.style.filter = "brightness(30%)";
+                        break;
+                    case "brightness(30%)":
+                        div.style.filter = "brightness(20%)";
+                        break;  
+                    case "brightness(20%)":
+                        div.style.filter = "brightness(10%)";
+                        break;    
+                    case "brightness(10%)":
+                        div.style.filter = "brightness(100%)";
+                        div.style.backgroundColor = "rgb(0, 0, 0)";
+                        break;    
+                    
+                    
+                }
+            }          
         });
         container.appendChild(div);
     }
 }
-
 
 function requestNumber () {
     number = prompt("Please enter the number of squares per line (max 100)");

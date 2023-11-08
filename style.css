@@ -17,12 +17,10 @@ body {
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    
 }
 
 button {
     height: 50px;
     width: 100px;
     align-self: center;
-
 }
